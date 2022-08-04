@@ -1,19 +1,30 @@
-[{
-    "id": "1",
-    "name" : "Season 16",
-    "url" : "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-16/ss-7531",
-    "finished" : false
-},
-{
-    "id": "2",
-    "name" : "Season 17",
-    "url" : "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-17/ss-7524",
-    "finished" : true
-},
-{
-    "id": "3",
-    "name" : "Season 20",
-    "url" : "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-20/ss-8438",
-    "finished" : true
-}
+[
+    {
+        "url": "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-16/ss-7531", 
+        "finished": false, 
+        "last_watched": "5 August, 2022 10:00:00", 
+        "id": "sank2131", 
+        "name": "Season 16"
+    }, 
+    {
+        "url": "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-17/ss-7524", 
+        "finished": true, 
+        "last_watched": "", 
+        "id": "gooas221", 
+        "name": "Season 17"
+    }, 
+    {
+        "url": "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-20/ss-8438", 
+        "finished": true, 
+        "last_watched": "", 
+        "id": "213123gw", 
+        "name": "Season 20"
+    },
+    {
+        "url": "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-10/ss-7533", 
+        "finished": false, 
+        "last_watched": "", 
+        "id": "tasdas28", 
+        "name": "Season 10"
+    }  
 ]
