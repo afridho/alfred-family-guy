@@ -38,7 +38,7 @@ def movies(search=None):
             'title': '{} ☑️'.format(project['name'])if project['finished'] == True else '{}'.format(project['name']),
             'subtitle': '{}'.format('⌘ Add season    ⌥ Delete season    ⌃ Mark watch'),
             'arg': project['url'],
-            'valid' : True,
+            'valid' : False if project['finished'] == True else True,
             'icon': {
                 'path': 'icon.png'
             },
@@ -116,8 +116,7 @@ def default():
     data_default = [{
                     'title': 'Season Name (space) Url Hotstar',
                     'subtitle': 'ex: Season 20 https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-20/ss-8438',
-                    'arg': 'hehe',
-                    'valid' : True,
+                    'valid' : False,
                     'icon': {
                         'path': 'icon.png'
                     }
