@@ -1,0 +1,19 @@
+[{
+    "id": "1",
+    "name" : "Season 16",
+    "url" : "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-16/ss-7531",
+    "finished" : false
+},
+{
+    "id": "2",
+    "name" : "Season 17",
+    "url" : "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-17/ss-7524",
+    "finished" : true
+},
+{
+    "id": "3",
+    "name" : "Season 20",
+    "url" : "https://www.hotstar.com/id/tv/family-guy/1260024995/seasons/season-20/ss-8438",
+    "finished" : true
+}
+]
