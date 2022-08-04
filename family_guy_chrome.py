@@ -36,7 +36,7 @@ def movies(search=None):
             continue
         result.append({
             'title': '{} ☑️'.format(project['name'])if project['finished'] == True else '{}'.format(project['name']),
-            'subtitle': '{}'.format('⌘ Add season    ⌥ Delete season    ⌃ Mark watch'),
+            'subtitle': '{}'.format(('Watch Now🍿' if project['finished'] == False else '{}'.format('Mod keys for option'))),
             'arg': project['url'],
             'valid' : False if project['finished'] == True else True,
             'icon': {
