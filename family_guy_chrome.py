@@ -108,7 +108,7 @@ def getData(queryName=None, queryNumber=None, queryUrl=None):
     result = []
     result = [{ 'title': 'Save Data',
         'subtitle': 'Format data is right✅',
-        'arg': '{} {}:{}'.format(queryName, queryNumber, queryUrl),
+        'arg': '{} {}\n{}'.format(queryName, queryNumber, queryUrl),
         'valid' : True,
         'icon': {
             'path': 'icon.png'
