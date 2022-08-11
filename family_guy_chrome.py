@@ -32,19 +32,22 @@ def time_now():
     now = datetime.now()
 
     # dd/mm/YY H:M:S
-    timeNow = now.strftime("%-d %B, %Y %H:%M:%S")
+    timeNow = now.strftime("%d %B, %Y %H:%M:%S")
     return timeNow
+
 
 def movies(search=None):
     data_out = data_object()
-    projects = sorted(data_out, key=lambda x: x['finished'], reverse=False)
+    # projects = sorted(data_out, key=lambda x: (x['finished'], x['no']), reverse=False)
+    projects = sorted(data_out, key=lambda x: (-x['finished'], datetime.strptime(x['last_watched'], '%d %B, %Y %H:%M:%S')), reverse=True)
+
     result = []
     for project in projects:
         if search is not None and project['name'].lower().find(search.lower()) == -1:
             continue
         result.append({
             'title': '{} ☑️'.format(project['name'])if project['finished'] == True else '{}'.format(project['name']),
-            'subtitle': '{}{}'.format(('Last watched: ' + project['last_watched'][:-3] + '   |   ' if project['last_watched'] and project['finished'] == False else ''),('Watch Now🍿' if project['finished'] == False else '{}'.format('Mod keys for option'))),
+            'subtitle': '{}{}{}'.format(('Last watched: ' + project['last_watched'][:-3] + '   |   Watch Now🍿' if project['first_time'] == False and project['finished'] == False  else ''),('{}'.format('Mod keys for option') if project['finished'] == True else ''),('{}'.format("Fresh from the oven. Let's Watching now!") if project['first_time'] == True else '')),
             'arg': '{}_{}'.format(project['id'],project['url']),
             'valid' : False if project['finished'] == True else True,
             'icon': {
@@ -95,7 +98,8 @@ def addData(seasonName=None, Url=None):
             "id": randomId(),
             "name": seasonName,
             "url": Url,
-            "last_watched": "",
+            "last_watched": time_now(),
+            "first_time" : True,
             "finished" : False,
         })
     with open(filename, 'w') as json_file:
@@ -193,6 +197,7 @@ def writeLastWatchedTime(dataId=None):
         for idx, obj in enumerate(my_list):
             if obj['id'] == dataId:
                 obj['last_watched'] = time_now()
+                obj['first_time'] = False
     with open(filename, 'w') as f:
         f.write(json.dumps(my_list, indent=4))
 """End write last watched time"""
