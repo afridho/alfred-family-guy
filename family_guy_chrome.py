@@ -35,6 +35,12 @@ def time_now():
     timeNow = now.strftime("%d %B, %Y %H:%M:%S")
     return timeNow
 
+def parse_season(seasonName=None):
+    return seasonName.replace(' ', '_').lower();
+
+def check_season_number(seasonName=None):
+    parse = seasonName.split(' ')[1] or 25
+    return int(parse)
 
 def movies(search=None):
     data_out = data_object()
@@ -52,6 +58,14 @@ def movies(search=None):
             'valid' : False if project['finished'] == True else True,
             'icon': {
                 'path': 'icon.png'
+            },
+            "action": {
+                "url": project['url'],
+            },
+            'quicklookurl' : 'https://en.wikipedia.org/wiki/Family_Guy_('+parse_season(project["name"])+')' if check_season_number(project['name']) <= 20 else 'https://familyguyfanon.fandom.com/wiki/Family_Guy_Fanon_Wiki',
+            'text': {
+                "copy": project['url'],
+                "largetype": '{}\n\n{}'.format(project['name'],project['url'])
             },
             'mods': {
                 'alt': {
@@ -134,7 +148,7 @@ def default():
                         'path': 'icon.png'
                     }
     }]
-    data = json.dumps({ "items": data_default }, indent=2)
+    data = json.dumps({ "items": data_default }, indent=4)
     print(data)
     
 def formatError():
@@ -145,7 +159,7 @@ def formatError():
                         'path': 'icon.png'
                     }
     }]
-    data = json.dumps({ "items": data_default }, indent=2)
+    data = json.dumps({ "items": data_default }, indent=4)
     print(data)
 
 def mainAddData():
@@ -155,7 +169,7 @@ def mainAddData():
         querySplit = Query.split()
         if(len(querySplit) > 1 and len(querySplit) != 2 and len(querySplit) < 4):
             posts  = getData(querySplit[0], querySplit[1], querySplit[2])
-            data = json.dumps({ "items": posts }, indent=2)
+            data = json.dumps({ "items": posts }, indent=4)
             print(data)
         elif (len(querySplit) == 2):
             return default()
