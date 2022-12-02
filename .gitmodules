@@ -1,0 +1,3 @@
+[submodule "alfred-football-info"]
+	path = alfred-football-info
+	url = https://github.com/afridho/alfred-football-info
